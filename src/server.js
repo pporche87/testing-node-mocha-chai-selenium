@@ -18,10 +18,12 @@ app.use((request, response, next) => {
 app.use('/', routes)
 
 app.use((request, response) => {
-  response.render('not_found')
+  response.status(404).render('not_found')
 })
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
   console.log(`http://localhost:${port}`)
 })
+
+module.exports = app

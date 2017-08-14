@@ -4,12 +4,14 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "start:dev": "nodemon src/server.js",
+    "start": "NODE_ENV=development node src/server.js",
+    "start:dev": "NODE_ENV=development nodemon src/server.js",
     "db:reset": "dropdb contacts_development && createdb contacts_development && npm run load_schema",
     "load_schema": "psql -d contacts_development < src/db/schema/schema.sql",
     "load_contacts": "psql -d contacts_development < test/seed/contacts.sql",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:db:setup": "dropdb contacts_test && createdb contacts_test && npm run test:db:load_schema",
+    "test:db:load_schema": "psql -d contacts_test < src/db/schema/schema.sql",
+    "test": "NODE_ENV=test mocha test/*"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,9 @@
     "pg-promise": "^6.2.1"
   },
   "devDependencies": {
+    "chai": "^4.1.1",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.5.0",
     "nodemon": "^1.11.0"
   }
 }
