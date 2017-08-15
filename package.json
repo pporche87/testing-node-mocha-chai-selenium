@@ -11,13 +11,14 @@
     "load_contacts": "psql -d contacts_development < test/seed/contacts.sql",
     "test:db:setup": "dropdb contacts_test && createdb contacts_test && npm run test:db:load_schema",
     "test:db:load_schema": "psql -d contacts_test < src/db/schema/schema.sql",
-    "test": "NODE_ENV=test mocha test/*"
+    "test": "NODE_ENV=test mocha --recursive"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "pg-promise": "^6.2.1"

@@ -7,7 +7,7 @@ const cheerio = require('cheerio')
 
 chai.use(chaiHttp)
 
-describe('the HTTP routes exposed on the server', () => {
+describe('End to End testing: tests the http routes exposed to the server', () => {
   beforeEach('truncate the DB tables and seed', () => {
     return dbHelper.initDB()
   })

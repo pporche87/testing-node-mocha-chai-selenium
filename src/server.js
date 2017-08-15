@@ -21,7 +21,10 @@ app.use((request, response) => {
   response.status(404).render('not_found')
 })
 
-const port = process.env.PORT || 3000
+const port = process.env.NODE_ENV === 'development' ?
+  process.env.DEV_PORT :
+	process.env.TEST_PORT
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}`)
 })

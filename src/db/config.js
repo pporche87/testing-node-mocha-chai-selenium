@@ -1,7 +1,7 @@
 module.exports = (env) => {
 	if (env === 'development') {
-		return 'postgres://localhost:5432/contacts_development'
+		return process.env.DB_DEV_URL
 	} else if (env === 'test') {
-		return 'postgres://localhost:5432/contacts_test'
+		return process.env.DB_TEST_URL
 	}
 }
