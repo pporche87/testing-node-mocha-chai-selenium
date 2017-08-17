@@ -1,11 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const dbContacts = require('./db/contacts')
 const app = express()
-const {renderError} = require('./server/utils')
-const routes = require('./server/routes');
+const routes = require('./server/routes')
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 
 app.use(express.static('public'))
@@ -23,10 +21,10 @@ app.use((request, response) => {
 
 const port = process.env.NODE_ENV === 'development' ?
   process.env.DEV_PORT :
-	process.env.TEST_PORT
+  process.env.TEST_PORT
 
 app.listen(port, () => {
-  console.log(`http://localhost:${port}`)
+  console.log(`http://localhost:${port}`) // eslint-disable-line no-console
 })
 
 module.exports = app
