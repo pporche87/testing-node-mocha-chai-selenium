@@ -2,6 +2,7 @@ const expect = require('chai').expect
 const dbContacts = require('../../../src/db/contacts')
 const dbHelper = require('../../helpers/db')
 
+
 describe('Integration tests: tests to test all the database functions', function() {
 
   beforeEach('truncate and seed the DB before each test', function() {
